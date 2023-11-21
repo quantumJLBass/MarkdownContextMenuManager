@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown File Type Manager</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Markdown File Type Manager</h1>
+    <button id="addMdButton">Add .md to Context Menu</button>
+    <script>
+        .ready(function(){
+            #addMdButton.click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "/api/registry/addMdFileType",
+                    success: function(data) {
+                        alert(data);
+                    },
+                    error: function() {
+                        alert("Error adding .md file type.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
